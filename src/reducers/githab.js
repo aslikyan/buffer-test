@@ -5,15 +5,16 @@ import {
 } from '../actions/githab'
 
 
-const createNewItemReducer = () => {
+const getOpenedPullRequestsReducer = () => {
     const initialState = {
-        isVisible: false,
+        showData: false,
+        pullList: null
     };
 
-    return function createNewItem(state = initialState, { type, data }) {
+    return function getOpenedPullRequestsReducer(state = initialState, { type, data }) {
         switch (type) {
             case GITHAB_PULLS_REQUESTED:
-                return { ...state, isVisible: true, selectedItem: data};
+                return { ...state, showData: true, pullList: data};
             default:
                 return state;
         }
@@ -22,5 +23,5 @@ const createNewItemReducer = () => {
 
 
 export default combineReducers({
-    githab: createNewItemReducer(),
+    githab: getOpenedPullRequestsReducer(),
 });

@@ -15,7 +15,7 @@ const Root = ({ store }) => (
           <Route exact path="/" component={HomePage} />
         </Switch>
           <Switch>
-              <Route exact path="/githab" component={Githab} />
+              <Route exact path="/github" component={Githab} />
           </Switch>
         <footer></footer>
       </div>
