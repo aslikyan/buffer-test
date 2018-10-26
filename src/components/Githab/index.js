@@ -9,6 +9,7 @@ import connect from "react-redux/es/connect/connect";
 
 class Githab extends PureComponent{
     render(){
+        let count = 0;
         const {
             showData,pullList
         } = this.props;
@@ -32,6 +33,7 @@ class Githab extends PureComponent{
                   <Col span = {6} push ={9}>
                     <Row>
                     {pullList.map((pull) =>
+                      !pull.closed_at ?(
                       <Col>
                       <Row>
                         <li><a className={'pull-request'} href={pull.html_url} target="_blank">Merge <span className={'head-branch'}>{pull.head.ref}</span> into <span className={'base-branch'}>{pull.base.ref}</span></a></li>
@@ -41,8 +43,14 @@ class Githab extends PureComponent{
                         author <a href={pull.user.html_url} target="_blank">{pull.user.login}</a>
                         </Col>
                       </Row>
-                      </Col>
+                      </Col>) : count ++
                     )}
+                    </Row>
+                    <Row>
+                      {
+                        pullList.length === count &&
+                        (<span>There is no opened pull requests</span>)
+                      }
                     </Row>
                   </Col>
                 </Row>
