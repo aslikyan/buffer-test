@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import HomePage from './HomePage';
+import Githab from './Githab';
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -13,7 +14,10 @@ const Root = ({ store }) => (
         <Switch>
           <Route exact path="/" component={HomePage} />
         </Switch>
-        <footer>footer</footer>
+          <Switch>
+              <Route exact path="/github" component={Githab} />
+          </Switch>
+        <footer></footer>
       </div>
     </BrowserRouter>
   </Provider>

@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import byId, * as fromById from './byId';
 import createList, * as fromList from './createList';
 import homepage from './homepage';
+import githab from './githab';
 
 const listByFilter = combineReducers({
   all: createList('all'),
@@ -13,6 +14,7 @@ const todos = combineReducers({
   byId,
   listByFilter,
   homepage,
+  githab
 });
 
 export default todos;
